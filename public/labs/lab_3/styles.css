@@ -1,49 +1,26 @@
 /* Add some css styles based on the tutorial at javascript.info: introduction to browser events
  https://javascript.info/introduction-browser-events */
 
-/* body {
-    text-align: center;
-}
-
-ul {
-    list-style-type: none;
-    transform: translateX();
-}
-
-li {
-    display: inline-block;
-}
-
-img {
-    display: block;
-}
-
-#carousel {
-    margin: 50px 0;
-    width: 400px;
-} */
-
 body {
     padding: 10px;
   }
   
-  .carousel {
+.carousel {
     position: relative;
     width: 398px;
     padding: 10px 40px;
     border: 1px solid #CCC;
     border-radius: 15px;
     background: #eee;
-  }
-  
-  .carousel img {
+}
+
+.carousel img {
     width: 130px;
     height: 130px;
-    /* make it block to remove space around images */
     display: block;
-  }
-  
-  .arrow {
+}
+
+.arrow {
     position: absolute;
     top: 60px;
     padding: 0;
@@ -54,42 +31,42 @@ body {
     line-height: 24px;
     color: #444;
     display: block;
-  }
-  
-  .arrow:focus {
+    height: 20px;
+    width: 20px;
+}
+
+.arrow:focus {
     outline: none;
-  }
-  
-  .arrow:hover {
+}
+
+.arrow:hover {
     background: #ccc;
     cursor: pointer;
-  }
-  
-  .prev {
+}
+
+.prev {
     left: 7px;
-  }
-  
-  .next {
+}
+
+.next {
     right: 7px;
-  }
-  
-  .gallery {
+}
+
+.gallery {
     width: 390px;
     overflow: hidden;
-  }
-  
-  .gallery ul {
+}
+
+.gallery ul {
     height: 130px;
     width: 9999px;
     margin: 0;
     padding: 0;
     list-style: none;
     transition: margin-left 250ms;
-    /* remove white-space between inline-block'ed li */
-    /* http://davidwalsh.name/remove-whitespace-inline-block */
     font-size: 0;
-  }
-  
-  .gallery li {
+}
+
+.gallery li {
     display: inline-block;
-  }
+}
