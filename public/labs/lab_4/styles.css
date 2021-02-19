@@ -1,0 +1,44 @@
+body {
+    background-color: #d3ede6;
+    margin: 40px;
+}
+
+h1 {
+    text-align: center;
+}
+
+button {
+    margin-top: 15px;
+}
+
+.form-row input {
+    width: 50%;
+}
+
+.form-row {
+    margin: 15px 0;
+}
+
+.age-form-row {
+    border: none;
+    margin-bottom: 40px;
+}
+  
+.age-form-row legend {
+margin-bottom: 15px;
+}
+
+.age-form-row .radio-label {
+display: block;
+font-size: 14px;
+padding: 0 20px 0 10px;
+}
+
+.age-form-row input[type='radio'] {
+margin-top: 2px;
+}
+
+.age-form-row .radio-label,
+.age-form-row input[type='radio'] {
+float: left;
+}

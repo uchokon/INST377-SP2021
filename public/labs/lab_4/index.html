@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Ucheoma Okonkwo Lab 4</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <header>
+            <h1>Ucheoma Okonkwo's Lab 4</h1>
+        </header>
+        <form action='' method='get' class='speaker-form'>
+            <div class="form-row">
+                <label for="first-name">First Name:</label>
+                <input id="first-name" name="first-name" type="text">
+            </div>
+            <div class="form-row">
+                <label for="last-name">Last Name:</label>
+                <input id="last-name" name="last-name" type="text">
+            </div>
+            <div class='form-row'>
+                <label for='email'>Email:</label>
+                <input id='email' name='email' type='email' placeholder='joe@example.com'/>
+            </div>
+            <div class='form-row'>
+                <label for='phone'>Phone Number:</label>
+                <input id='phone' name='phone' type='tel' placeholder='ex.(555)-555-5555'/>
+            </div>
+            <div class='form-row'>
+                <label for='text-field'>Text Field:</label>
+                <input id='text-field' name='text-field' type='text'/>
+            </div>
+            <fieldset class='age-form-row'>
+                <legend>Age:</legend>
+                <input id='age-type-1' name='age-type' type='radio' value='18-35' />
+                <label for='age-type-1' class='radio-label'>18-35</label>
+                <input id='age-type-2' name='age-type' type='radio' value='35-50' />
+                <label for='age-type-2' class='radio-label'>35-50</label>
+                <input id='age-type-3' name='age-type' type='radio' value='50-65' />
+                <label for='age-type-3' class='radio-label'>50-65</label>
+            </fieldset>
+            <button onclick="alert('Form Submited!')">Submit Form</button>
+        </form>
+    </body>
+</html>
