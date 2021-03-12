@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+    <link rel="stylesheet" href="bulma.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RocknRoll+One">
+
+    <title>Ucheoma Okonkwo's Lab 5</title>
+</head>
+<body>
+    <div class ="container is-max-desktop">
+        <div class="title">
+            <h1>Ucheoma Okonkwo's Lab 5</h1>
+        </div>
+        <div id="searchbar">
+          <form class="search-form" >
+            <input id = "search" class="input is-primary" type="text" placeholder="Search zipcode here">
+          </form>
+        </div>
+        <div class="results-div">
+          <ul class="results">
+          </ul>
+        </div>
+    </div>
+    <div id="mapid"></div>
+<script src="script.js"></script>
+</body>
+</html>
