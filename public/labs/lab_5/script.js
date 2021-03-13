@@ -2,7 +2,7 @@
 /* eslint-disable no-shadow */
 function mapInit() {
   // follow the Leaflet Getting Started tutorial here
-  const map = L.map('mapid').setView([51.505, -0.09], 13);
+  const mymap = L.map('mapid').setView([51.505, -0.09], 13);
 
   L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -11,57 +11,73 @@ function mapInit() {
     tileSize: 512,
     zoomOffset: -1,
     accessToken: 'your.mapbox.access.token'
-  }).addTo(map);
+  }).addTo(mymap);
 
-  return map;
+  return mymap;
 }
 
 async function dataHandler(mapObjectFromFunction) {
   // use your assignment 1 data handling code here
   // and target mapObjectFromFunction to attach markers
+  const form = document.querySelector('.userform');
+  const search = document.querySelector('#search');
+  const list = document.querySelector('.results');
+
   const endpoint = 'https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json';
 
-  const request = await fetch(endpoint);
+  // list
 
-  const restaurants = await request.json();
-  console.log(restaurants);
-  function findMatches(ZipToMatch, restaurants) {
-    return restaurants.filter((place) => {
-      const regex = new RegExp(ZipToMatch, 'gi');
-      return place.zip.match(regex);
+  // const request = await get('/api');
+  // const data = await request.json();
+
+  const request = await fetch(endpoint);
+  // .then(blob => blob.json())
+  // .then(data => places.push(...data));
+
+  const places = await request.json();
+
+  function findMatches(wordToMatch, places) {
+    return places.filter((place) => {
+      const regex = new RegExp(wordToMatch, 'gi');
+      return place.name.match(regex) || place.category.match(regex);
     });
   }
 
   function displayMatches(event) {
-    console.log(event.target.value);
-    const matchArray = findMatches(event.target.value, restaurants);
-    console.log(matchArray);
+    const matchArray = findMatches(event.target.value, places);
+    if (event.target.value === '') {
+      list.innerHTML = '';
+    } else {
+      const html = matchArray.map((place) => {
+        const regex = new RegExp(event.target.value, 'gi');
+        const nameMatch = place.name.replace(regex, `<span class='hl'>${event.target.value}</span>`);
+        const catMatch = place.category.replace(regex, `<span class='hl'>${event.target.value}</span>`);
+        return `
+              <div class="result">
+                  <li>
+                      <span class="name is-capitalized is-size-4">
+                        ${nameMatch.toLowerCase()}
+                      </span>
+                      <span class="category is-capitalized">
+                        ${catMatch.toLowerCase()}
+                      </span>
+                      <address>
+                        ${place.address_line_1.toUpperCase()}<br>
+                        ${place.zip}
+                      </address>
+                  </li>
+              </div>
+              `;
+      }).join('');
 
-    const htmlstuff = matchArray.map((place) => {
-      const regex = new RegExp(event.target.value, 'gi');
-      const zipMatch = place.zip.replace(regex, `<span class='hl'>${event.target.value}</span>`);
-
-      return `
-        <div class="result"
-          <li>
-            <span class="name is-capitalized is-size-4">${place.name.toLowerCase()}</span>
-            <span class="category is-capitalized">${place.category.toLowerCase()}</span>
-            <address>${place.address_line_1.toUpperCase()}<br> ${zipMatch}</address>
-          </li>
-        </div>`;
-    }).join('');
-
-    // eslint-disable-next-line no-use-before-define
-    results.innerHTML = htmlstuff;
-    console.log(htmlstuff);
+      list.innerHTML = html;
+    }
   }
 
-  const searchInput = document.querySelector('#search');
-  const results = document.querySelector('.results');
-
-  searchInput.addEventListener('change', displayMatches);
-  searchInput.addEventListener('keyup', (evt) => { displayMatches(evt); });
-  console.log(searchInput);
+  search.addEventListener('change', displayMatches);
+  search.addEventListener('keyup', (evt) => {
+    displayMatches(evt);
+  });
 }
 
 async function windowActions() {
