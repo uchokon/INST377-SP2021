@@ -10,28 +10,31 @@
    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
    crossorigin=""></script>
     <link rel="stylesheet" href="bulma.css" type="text/css">
+    <link rel="stylesheet" href="styles.css" type="text/css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
 
     <title>Ucheoma Okonkwo's Lab 5</title>
 </head>
 <body>
-    <form class="userform">
-        <div class="container is-max-desktop">
-            <div class="title">
-                <h1>Ucheoma Okonkwo's Lab 5</h1>
+    <form class="userform mt-6">
+        <div class="columns is-multiline is-mobile is-centered">
+            <div class="column is-half">
+                <div class="title">
+                    <h1>Ucheoma Okonkwo's Lab 5</h1>
+                </div>
+                <div id="searchbar">
+                <form class="search-form" >
+                    <input name="search" id="search" class="input is-primary" type="text" placeholder="Search Restaurant Name or Type">
+                </form>
+                </div>
+                <div class="results-div">
+                    <ul class="results">
+                </ul>
+                </div>
             </div>
-            <div id="searchbar">
-              <form class="search-form" >
-                <input name="search" id="search" class="input is-primary" type="text" placeholder="Search Restaurant Name or Type">
-              </form>
-            </div>
-            <div class="results-div">
-              <ul class="results">
-              </ul>
-            </div>
+            <div id="mapid" class="column is-half"></div>
         </div>
     </form>
-    <div id="mapid"></div>
     <script src="script.js"></script>
 </body>
 </html>
