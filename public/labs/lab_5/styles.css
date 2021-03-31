@@ -9,7 +9,7 @@
 
 
 .result {
-    background-image: linear-gradient(#DCF2B0, #C2EABD);
+    background-color: hsl(171, 100%, 41%);
     display: flex;
     flex-direction: column;
     margin-top: 10px;

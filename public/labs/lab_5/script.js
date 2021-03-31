@@ -13,6 +13,8 @@ function mapInit() {
     accessToken: 'pk.eyJ1IjoidW9rb253byIsImEiOiJja203MTkycmEwdHA4MnVwbXEzdzFndTUyIn0.9QQaiqKnKe49UhV5o0IgGg'
   }).addTo(mymap);
 
+  const marker = L.marker([51.5, -0.09]).addTo(mymap);
+
   return mymap;
 }
 
